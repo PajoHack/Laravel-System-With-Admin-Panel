@@ -11,6 +11,7 @@
         <thead>
           <tr>
             <th>ID</th>
+              <th>Photo</th>
             <th>Name</th>
             <th>Email</th>
               <th>Role</th>
@@ -27,7 +28,9 @@
         <tbody>
           <tr>
             <td>{{ $user->id }}</td>
-            <td>{{ $user->name }}</td>
+              {{--<td><img height="50" src="{{ $user->photo ? $user->photo->file : 'Image not avaiable'}}" alt=""></td>--}}
+              <td><img height="50" src="{{ $user->photo ? $user->photo->file : '/images/placeholder.jpg' }}" alt=""></td>
+            <td><a href="{{ route('admin.users.edit', $user->id) }}">{{ $user->name }}</a></td>
             <td>{{ $user->email }}</td>
               <td>{{ $user->role->name }}</td>
               {{--<td>{‌{$user->role->name == $user->role->name ? $user->role->name : 'User has no role'}}</td>--}}
